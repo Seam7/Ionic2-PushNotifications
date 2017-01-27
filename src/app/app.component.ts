@@ -55,7 +55,13 @@ export class MyApp {
               text: 'View',
               handler: () => {
                 //TODO: Your logic here
+                let notificationAlert = this.alertCtrl.create({
+                  title: 'Accepted notification!',
+                  message: data.message,
+                  buttons: ['OK']
+                });
                 self.nav.push(DetailsPage, {message: data.message});
+                notificationAlert.present();
               }
             }]
           });
@@ -64,6 +70,12 @@ export class MyApp {
           //if user NOT using app and push notification comes
           //TODO: Your logic on click of push notification directly
           self.nav.push(DetailsPage, {message: data.message});
+          let notificationAlert = this.alertCtrl.create({
+            title: 'Accepted notification!',
+            message: data.message,
+            buttons: ['OK']
+          });
+          notificationAlert.present();
           console.log("Push notification clicked");
         }
       });
